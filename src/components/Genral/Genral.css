@@ -14,7 +14,7 @@
 .BTN1 button
 {
     /* padding: 5px; */
-    width: 80px;
+    width: 95px;
     padding: 4px;
     margin-bottom: -4px; 
     font-size: 13px;
@@ -58,4 +58,39 @@
 
 .BTN1 button:focus:not(:active) {
   box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
+}
+
+
+
+/* Absract Classess */
+
+
+.tpad30
+{
+  padding-top: 55px;
+}
+
+
+
+.BTN2
+{
+  text-decoration: none;
+  margin-top: 0 ;
+}
+
+
+
+.BTN2 button
+{
+  width: 180px;
+  padding: 4px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  align-items: center;
+  border: none;
+  /* border-radius:20px; */
+  cursor: pointer;
+  color: white;
+  background-color: #bb0052;
 }

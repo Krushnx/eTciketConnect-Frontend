@@ -10,7 +10,7 @@ function AuthContextProvider(props)
     const [user, setUser] = useState({}); // State to store user data
     const [isConductor , setIsConductor] = useState(undefined);
     async function getLoggedin() {
-        console.log("getLoggedin function is called");
+        // console.log("getLoggedin function is called");
       
         try {
             const loggedInRes = await fetch(`${link}/auth/loggedIN`, {

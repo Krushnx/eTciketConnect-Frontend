@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import link from '../../backendlink';
 import './auth.css';
 import Navbar from '../Home/Navbar/Navbar';
+import logo1 from '../../logos/logo1.png'
+import logo2 from '../../logos/logo2.png'
 
 function Login() {
   const navigate = useNavigate();
@@ -39,9 +41,15 @@ function Login() {
 
   return (
     <div>
-      <Navbar flag={true}/>
-
+      {/* <Navbar flag={true}/> */}
+      <div className="logo-login">
+      <a href="/">
+          <img src={logo2} alt="" />
+          <img src={logo1} alt="" />
+          </a>
+    </div>
     <div className="form login">
+    
       <div className="form-content">
         <header>Login</header>
         <form onSubmit={login}>

@@ -8,7 +8,6 @@ function Main()
 
     return(
         <div>
-            hii
             
             {isConductor}
              { isConductor === false && <> <User />

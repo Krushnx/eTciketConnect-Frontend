@@ -23,7 +23,7 @@ function Navbar(props) {
 
       var nameuser = username || ""
 
-  console.log("LoggedIN in navbar ==> ",loggedIn);
+  // console.log("LoggedIN in navbar ==> ",loggedIn);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,9 +34,16 @@ function Navbar(props) {
   const changeStyle = {
     color: props.flag ? "#4c0448" : "white", // Apply the style if isSpecial is true, else use the initial value
   };
+  
+  const Backcolor = 
+  {
+    // background : props.flag ? 'rgb(0,0,0,0.8) linear-gradient(90deg, rgba(14,0,36,1) 0%, rgba(9,9,121,1) 40%, rgba(119,0,255,1) 100%)' : "transparent"
+
+  }
 
   return (
-    <nav className={`navbar ${isOpen ? 'active' : ''}`} >
+
+    <nav className={`navbar ${isOpen ? 'active' : ''}`} style={Backcolor}>
     <div className="logo">
       <a href="/">
           <img src={logo2} alt="" />

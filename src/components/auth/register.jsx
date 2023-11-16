@@ -2,6 +2,8 @@ import React, { useContext   , useState} from 'react';
 import AuthContext from '../../context/authcontext';
 import { useNavigate } from 'react-router-dom';
 import link from '../../backendlink';
+import logo1 from '../../logos/logo1.png'
+import logo2 from '../../logos/logo2.png'
 
 import axios from 'axios';
 function Register()
@@ -53,6 +55,14 @@ function Register()
   
   
     return(
+      <div>
+        <div className="logo-login">
+      <a href="/">
+          <img src={logo2} alt="" />
+          <img src={logo1} alt="" />
+          </a>
+   
+      </div>
         <div className="form signup">
         <div className="form-content">
           <header>Signup</header>
@@ -83,7 +93,7 @@ function Register()
             <span>Already have an account? <a href="/login" className="link login-link" >Login</a></span>
           </div>
         </div>
-       
+        </div>
         
         
       </div>
