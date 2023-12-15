@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import link from '../../backendlink';
 import './auth.css';
-import Navbar from '../Home/Navbar/Navbar';
 import logo1 from '../../logos/logo1.png'
 import logo2 from '../../logos/logo2.png'
 

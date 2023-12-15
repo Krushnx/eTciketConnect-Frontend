@@ -6,8 +6,9 @@ import AuthContext from './context/authcontext';
 import Home from './components/Home/Home';
 import Main from './components/Home/main';
 import Bookings from './components/Routes/Conductor/Bookings';
-import Navbar from './components/Home/Navbar/Navbar'
+import TicketCNF from './components/Routes/Conductor/TicketCNF';
 
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 
 
@@ -32,6 +33,8 @@ function MyRouter() {
 
             <Route path="/main" element={<Main />} />
             <Route path="/conductor/bookings" element={<Bookings />} />
+            <Route path="/test" element={<TicketCNF />} />
+
             </>}
             
            

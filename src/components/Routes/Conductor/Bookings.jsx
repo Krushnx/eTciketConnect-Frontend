@@ -18,7 +18,6 @@ function Bookings() {
 
   
   const [inpdate, setDate] = useState(new Date());
-  const [showall , setshowall] = useState(false);
   const [ticket, setTicket] = useState([]);
   const [currentPage, setCurrentPage] = useState(0); // react-paginate uses zero-based indexing
   const [entriesPerPage] = useState(10);
@@ -95,7 +94,7 @@ function Bookings() {
 
     const formattedDate = `${day}/${month}/${year}`;
     // console.log("I ==",i,  " Inp1" , convertToIST(ticket[i].date).date);
-    if (ticket[i].createdBy !== user._id || convertToIST(ticket[i].date).date != formattedDate) {
+    if (ticket[i].createdBy !== user._id || convertToIST(ticket[i].date).date !== formattedDate) {
       // Remove items that do not match the criteria
       ticket.splice(i, 1);
     }
@@ -143,7 +142,6 @@ function Bookings() {
           <h3>Select Date</h3>
           <DatePicker onChange={datechanged} value={inpdate} />
           </div>
-    {console.log("I got called" , showall)}
         </div>
 
         <div className="booking-content">

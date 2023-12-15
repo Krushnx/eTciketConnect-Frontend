@@ -2,17 +2,16 @@ import React, { useContext, useState } from "react";
 import AuthContext from "../../../context/authcontext";
 import axios from "axios";
 import link from "../../../backendlink";
-import LogoutBTN from "../../auth/logoutBTN";
 import Navbar from "../../Home/Navbar/Navbar";
 import "../../Genral/Genral.css";
 import "./Conductor.css";
 import Button2 from "../../Genral/Button2";
-import InputWIthSearch from "../../Genral/InputWIthSearch";
 import Dropdown from "../../Genral/InputWIthSearch";
 import switchlogo from '../../../logos/switch.png';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
-
+import 'reactjs-popup/dist/index.css';
+import TicketCNF from "./TicketCNF";
 
 function Conductor() {
   const user = useContext(AuthContext);
@@ -46,14 +45,29 @@ function Conductor() {
     };
     setPrice("");
     Swal.fire({
-      title: `Recived ₹ ${price}`,
-      text: `Ticket Created Successfully from ${source} to ${destination}`,
-      icon: 'success',
-      confirmButtonText: 'OK',
+      title: `Scan The QR`,
+      text: `Ticket will genrated from ${source} to ${destination}`,
+      imageUrl: `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3D9322681386%40ybl%26am%3D${price}%26tn%3DTicket%26cu%3DINR`,
+  imageHeight: 300,
+  imageAlt: "A tall image",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Payment Recived"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: `Recived ₹ ${price}`,
+          text: `Ticket Created Successfully from ${source} to ${destination}`,
+          icon: 'success',
+          confirmButtonText: 'OK',
       showCancelButton: false,
       allowEscapeKey: false,
       allowOutsideClick: false
+        });
+      }
     });
+   
 
     try {
       await axios.post(`${link}/ticket`, newEntry);
@@ -130,7 +144,6 @@ function Conductor() {
                   
               <Button2 name="Create Ticket" />
               </div>
-
             </form>
           </div>
           <h2>
@@ -140,35 +153,7 @@ function Conductor() {
 
         <div className="CNDT-right"></div>
       </div>
-      {/* <div className='tpad30'>
-            <h2>
-                I am a Conductor hh
-            </h2>
-            <form onSubmit={createTicket} autocomplete="off">
-          <input autoComplete="new-password" name="hidden" type="text" style={{display:"none"}} />
-
-            <div className="field input-field">
-              <input required type="text" placeholder="Source" className="input" onChange={(e)=> setSource(e.target.value)}/>
-            </div>
-            <div className="field input-field">
-              <input required type="text" placeholder="Destination" className="input" onChange={(e)=> setDestination(e.target.value)}/>
-            </div>
-           
-            <div className="field input-field">
-              <input required type="text" placeholder="Price" className="input" onChange={(e)=> setPrice(e.target.value)}/>
-            </div>
-           
-            <div className="field button-field">
-              <button>Create Ticket</button>
-            </div>
-          </form>
-
-          <a href="/conductor/bookings">
-            <button>my bookings</button>
-          </a>
-          <LogoutBTN />
-        </div> */}
-    </div>
+          </div>
   );
 }
 export default Conductor;

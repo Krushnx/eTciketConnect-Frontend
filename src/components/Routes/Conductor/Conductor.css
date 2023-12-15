@@ -101,6 +101,31 @@
     margin: 0 20px;
     font-weight: bold;
 }
+.input-source:focus
+{
+    /* outline: none; */
+    
+}
 
+
+.input-source::placeholder
+{
+    
+    background-color: transparent;
+}
+
+.input-source
+{
+    height: 50%;
+    border: none;
+    margin-top: 16px;
+    /* margin-left: -40px; */
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    /* width: 150%; */
+    color: blue;
+    /* opacity: 0.7; */
+}
 
 

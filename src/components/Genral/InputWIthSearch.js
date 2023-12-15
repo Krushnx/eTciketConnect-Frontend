@@ -5,18 +5,34 @@ function Dropdown({ selected, setSelected }) {
   const [isActive, setIsActive] = useState(false);
   const options = [  "Source",   "Pune","Shrirampur","Mumbai","Satara","Nashik","Solapur","Kolhapur" 
 ];
+const [narray , setnArray] = useState([]);
+const [query , setQuery] = useState("");
+
+
+ function querychnage(e) {
+    setQuery(e.target.value)
+    setnArray(options.filter(item => item.toLowerCase().startsWith(e.target.value.toLowerCase())))
+    if(e.target.value === "")
+    {
+      setnArray([]);
+      
+    }
+    console.log("Current status =>",typeof e.target.value ," with value = " ,e.target.value);
+    console.log("==>" ,narray);
+    setIsActive(!isActive)
+  }
   return (
     <div className="dropdown">
-      <div className="dropdown-btn" onClick={(e) => setIsActive(!isActive)}>
-        {selected}
-        <span className="fa fa-caret-down" style={{marginLeft:"20px"}}></span>
+      <input required type="text" placeholder="Select" className="input-source" onChange={querychnage} value={query} onClick={(e) => setIsActive(!isActive)} />                  
+      <div className="dropdown-btn" >
       </div>
       {isActive && (
         <div className="dropdown-content">
-          {options.map((option) => (
+          {narray.map((option) => (
             <div
               onClick={(e) => {
                 setSelected(option);
+                setQuery(option)
                 setIsActive(false);
               }}
               className="dropdown-item"

@@ -1,14 +1,11 @@
-import React, { useContext   , useState} from 'react';
-import LogoutBTN from '../auth/logoutBTN';
+import React, { useContext  } from 'react';
 import AuthContext from '../../context/authcontext';
 import './home.css'
-import ReactTypingEffect from 'react-typing-effect';
 import Navbar from './Navbar/Navbar';
-import Button1 from '../Genral/Button1';
 import Button2 from '../Genral/Button2';
 function Home()
 {
-    const {getLoggedin ,loggedIn,user} = useContext(AuthContext);
+    const {loggedIn} = useContext(AuthContext);
 
     const gotolink = loggedIn ? 'main': 'login';
     // console.log(loggedIn);
