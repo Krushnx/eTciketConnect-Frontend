@@ -47,3 +47,12 @@ const [query , setQuery] = useState("");
 }
 
 export default Dropdown;
+
+
+
+// {
+//   {Source : "pune" ; destination : "Mumbai" ; price : "120";};
+//   {Source : "pune" ; destination : "Shrirampur" ; price : "280";};
+//   {Source : "Mumbai" ; destination : "Satara" ; price : "520";},
+
+// }

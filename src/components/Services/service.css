@@ -1,0 +1,96 @@
+body
+{
+    margin: 0;
+    padding: 0;
+
+}
+
+.service
+{
+    margin: 0;
+    padding: 0;
+    background: rgba(0,0,0,0.8) url('../../logos/Homeback.jpg');
+background-blend-mode: darken;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+}
+
+.service-content {
+    padding-top: 90px;
+    color: white;
+}
+
+.service-content h2{
+    text-align: center;
+}
+
+.service-content p{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.service-content h3{
+    padding-top: 15px;
+    color: #fb0041;
+}
+
+.service-content hr{
+    padding-top: 7px;
+}
+
+
+.service-FAQ {
+    color: white;
+}
+
+
+.service-FAQ h2{
+    padding-top: 10px;
+    text-align: center;
+}
+
+/* styles.css */
+
+/* Style for the FAQ item */
+.faq-item {
+    margin-bottom: 10px;
+  }
+
+  .faq-item button{
+    background-color: transparent;
+    color: white;
+  }
+  
+  .faq-answer{
+    padding-left: 50px;
+    color: #fb0041;
+  }
+  /* Style for the question button */
+  .faq-question {
+    /* background-color: #f0f0f0; */
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+ /* styles.css */
+
+/* Style for the FAQ item */
+.faq-item {
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the question button */
+  .faq-question {
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+

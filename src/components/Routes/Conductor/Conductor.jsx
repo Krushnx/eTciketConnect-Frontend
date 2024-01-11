@@ -19,7 +19,7 @@ function Conductor() {
   const [destination, setDestination] = useState("Mumbai");
   const [price, setPrice] = useState("");
   const [source, setSource] = useState("Pune");
-
+  const [timer , setTimer] = useState(10);
   console.log("CNDT ==> ", user);
   const createdBy = user.user._id;
   const ticketBusRoute = user.user.busRoute;
@@ -34,7 +34,7 @@ function Conductor() {
   }
   async function createTicket(e) {
     e.preventDefault();
-
+    
     const newEntry = {
       source,
       destination,
@@ -44,16 +44,39 @@ function Conductor() {
       ticketBusRoute,
     };
     setPrice("");
+    let timerInterval;
+
     Swal.fire({
       title: `Scan The QR`,
-      text: `Ticket will genrated from ${source} to ${destination}`,
+      html: `Ticket will genrated from ${source} to ${destination} <br />This Window Will close in <b></b>`,
       imageUrl: `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3D9322681386%40ybl%26am%3D${price}%26tn%3DTicket%26cu%3DINR`,
-  imageHeight: 300,
-  imageAlt: "A tall image",
+      imageHeight: 300,
+      imageAlt: "A tall image",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Payment Recived"
+      confirmButtonText: "Payment Recived",
+  timer: 120000,
+  timerProgressBar: true,
+  didOpen: () => {
+    const timer = Swal.getPopup().querySelector("b");
+    timer.style.color = "red";
+    var mm = 1;
+    var ss = 59;
+    timerInterval = setInterval(() => {
+      timer.textContent = `${mm} min : ${ss} sec`;
+      ss--;
+      if(ss===-1)
+      {
+        mm=0;
+        ss=59;
+      }
+    }, 1000);
+  },
+  willClose: () => {
+    clearInterval(timerInterval);
+  }
+
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({

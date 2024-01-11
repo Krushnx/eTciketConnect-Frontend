@@ -67,7 +67,6 @@ function Bookings() {
 
   function datechanged(value)
   {
-    console.log("Fuck yeahhh!");
     setDate(value);
     console.log(inpdate);
     fetchUserTicket();
@@ -77,6 +76,7 @@ function Bookings() {
       const year = inpdate.getFullYear();
       
       const formattedDate = `${day}/${month}/${year}`;
+      console.log("formated date --> ",formattedDate);
       if (ticket[i].createdBy !== user._id || convertToIST(ticket[i].date).date !== formattedDate) {
         // Remove items that do not match the criteria
         ticket.splice(i, 1);
@@ -91,8 +91,11 @@ function Bookings() {
     const month = inpdate.getMonth() + 1; 
     const year = inpdate.getFullYear();
     
+    
 
     const formattedDate = `${day}/${month}/${year}`;
+    console.log("formated date ----> ",formattedDate);
+
     // console.log("I ==",i,  " Inp1" , convertToIST(ticket[i].date).date);
     if (ticket[i].createdBy !== user._id || convertToIST(ticket[i].date).date !== formattedDate) {
       // Remove items that do not match the criteria
