@@ -70,18 +70,19 @@ function Bookings() {
     setDate(value);
     console.log(inpdate);
     fetchUserTicket();
-    for (let i = ticket.length - 1; i >= 0; i--) {
-      const day = inpdate.getDate();
-      const month = inpdate.getMonth() + 1; 
-      const year = inpdate.getFullYear();
+    // for (let i = ticket.length - 1; i >= 0; i--) {
+    //   const day = inpdate.getDate();
+    //   const month = inpdate.getMonth() + 1; 
+    //   const year = inpdate.getFullYear();
       
-      const formattedDate = `${day}/${month}/${year}`;
-      console.log("formated date --> ",formattedDate);
-      if (ticket[i].createdBy !== user._id || convertToIST(ticket[i].date).date !== formattedDate) {
-        // Remove items that do not match the criteria
-        ticket.splice(i, 1);
-      }
-    }
+    //   const formattedDate = `${day}/${month}/${year}`;
+    //   console.log("Condition ==> " , convertToIST(ticket[i].date));
+    //   console.log("formated date --> ",formattedDate , "  ==",convertToIST(ticket[i].date));
+    //   if (ticket[i].createdBy !== user._id || convertToIST(ticket[i].date).date !== formattedDate) {
+    //     // Remove items that do not match the criteria
+    //     ticket.splice(i, 1);
+    //   }
+    // }
   }
 
 
@@ -90,15 +91,22 @@ function Bookings() {
     const day = inpdate.getDate();
     const month = inpdate.getMonth() + 1; 
     const year = inpdate.getFullYear();
+
+    let formattedDate = (month < 10) ? `${day}/0${month}/${year}` : `${day}/${month}/${year}`;
+
     
     
 
-    const formattedDate = `${day}/${month}/${year}`;
-    console.log("formated date ----> ",formattedDate);
-
-    // console.log("I ==",i,  " Inp1" , convertToIST(ticket[i].date).date);
+    // const formattedDate = `${day}/${month}/${year}`;
+    
+    
+    console.log("------------------");
+    console.log("I ==",i,  " \nInp1" , convertToIST(ticket[i].date).date , "\nformateddate == > " , formattedDate);
+    console.log("------------------");
     if (ticket[i].createdBy !== user._id || convertToIST(ticket[i].date).date !== formattedDate) {
       // Remove items that do not match the criteria
+      // console.log("formated date ----> ",formattedDate , "   & --> ", convertToIST(ticket[i].date).date);
+      // console.log("comparison " ,convertToIST(ticket[i].date).date );
       ticket.splice(i, 1);
     }
    

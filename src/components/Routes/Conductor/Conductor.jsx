@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState ,useEffect} from "react";
 import AuthContext from "../../../context/authcontext";
 import axios from "axios";
 import link from "../../../backendlink";
@@ -16,15 +16,56 @@ import TicketCNF from "./TicketCNF";
 function Conductor() {
   const user = useContext(AuthContext);
   // const [source , setSource] = useState("");
-  const [destination, setDestination] = useState("Mumbai");
+  const [destination, setDestination] = useState("");
   const [price, setPrice] = useState("");
-  const [source, setSource] = useState("Pune");
-  const [timer , setTimer] = useState(10);
+  const [source, setSource] = useState("");
+  // const [timer , setTimer] = useState(10);
   console.log("CNDT ==> ", user);
   const createdBy = user.user._id;
   const ticketBusRoute = user.user.busRoute;
   const ticketBusNumber = user.user.busNumber;
+  const [srcarray , setsrcarray] = useState([]); 
+  const [destarray , setdestarray] = useState([]); 
   console.log("on cod ==> ", createdBy);
+  
+
+  // fetching bus data
+  
+  const [busData, setBusData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/bus/Mumbai-Satara');
+        const data = await response.json();
+        setBusData(data);
+        setsrcarray(data.stops);
+        console.log("41 -- > ",data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array to ensure the effect runs only once
+
+
+
+
+  const handleDropdownChange = (event) => {
+    setSource(event.target.value);
+    setdestarray(srcarray);
+
+
+let index = srcarray.indexOf(event.target.value);
+let result = index !== -1 ? srcarray.slice(index + 1) : [];
+
+    setdestarray(result);
+  };
+  const handeldestination = (event) => {
+    setDestination(event.target.value);
+  };
+
 
   function swap(){
     const tempsouce = source;
@@ -124,7 +165,17 @@ function Conductor() {
                     src="https://www.iconpacks.net/icons/1/free-building-icon-1062-thumb.png"
                     alt=""
                   />
-                  <Dropdown selected={source} setSelected={setSource} />
+                 <div>
+      <select id="dropdown" value={source} onChange={handleDropdownChange}>
+        <option value="">Select</option>
+        {busData && busData.stops.map((stop, index) => (
+          <option key={index} value={stop}>
+            {stop}
+          </option>
+        ))}
+      </select>
+
+    </div>
                   <p>Source</p>
                 </div>
                 <div
@@ -147,15 +198,24 @@ function Conductor() {
                     src="https://www.iconpacks.net/icons/1/free-building-icon-1062-thumb.png"
                     alt=""
                   />
-                  <Dropdown
-                    selected={destination}
-                    setSelected={setDestination}
-                  />
+                <div>
+      <select id="dropdown" value={destination} onChange={handeldestination}>
+        <option value="">Select</option>
+        {busData && destarray.map((stop, index) => (
+          <option key={index} value={stop}>
+            {stop}
+          </option>
+        ))}
+      </select>
+
+    </div>
+             
                   <p>Destination</p>
                 </div>
 
                   </div>
               <div style={{display:"flex", margin:"20px 0"}}>
+                
                 <input
                   required
                   type="number"
