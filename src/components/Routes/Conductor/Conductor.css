@@ -141,3 +141,92 @@
     text-align: center;
 }
 
+/* Generic css */
+
+.flexc
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.flexr
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.fcenter
+{
+    justify-content: center;
+    align-items: center;
+}
+
+.margin20
+{
+    margin: 20px;
+}
+
+
+.nooft
+{
+    margin: 0px 20px;
+    width: 180px;
+}
+
+.nooft h2
+{
+    background-color: #bb0052;
+    color: white;
+    border: none;
+    /* padding: 5px; */
+  font-size: 20px;
+  height: 40px;
+  width: 40px;
+  /* width: 180px; */
+  border-radius: 100px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin: 0px 15px;
+}
+
+.nooft h1
+{
+    font-size: 18px;
+    margin: 0px;
+    height: 40px;
+    vertical-align: middle;
+    line-height: 40px;
+
+}
+
+.btns
+{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;    
+}
+
+
+.cnfmtct
+{
+    line-height: 50px;
+    width: 150px;
+    height: 50px;
+    margin: 0px 20px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: green;
+    cursor: pointer;
+}
+
+.show
+{
+    display: block;
+}
+.hide
+{
+    display: none;
+}

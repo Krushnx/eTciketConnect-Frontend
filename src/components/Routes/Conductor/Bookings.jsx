@@ -11,6 +11,7 @@ import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import Button2 from "../../Genral/Button2";
+import ExportBTN from "./ExportBTN";
 
 
 function Bookings() {
@@ -147,12 +148,13 @@ function Bookings() {
          
             
             <Button2 name="Book Tickets" link="/main"/>
-         
+            <ExportBTN data = {ticket}/>
          
           <div className="select-date">
           <h3>Select Date</h3>
           <DatePicker onChange={datechanged} value={inpdate} />
           </div>
+          
         </div>
 
         <div className="booking-content">
@@ -165,6 +167,7 @@ function Bookings() {
                 <th>Source</th>
                 <th>Destination</th>
                 <th>Price</th>
+                <th>Ticket Count</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Ticket ID</th>
@@ -176,9 +179,11 @@ function Bookings() {
                   <th>{item.source}</th>
                   <th>{item.destination}</th>
                   <th>{item.price}</th>
+                  <th>{item.ticketCount ? item.ticketCount.$numberDecimal : 1}</th>
                   <th>{convertToIST(item.date).date}</th>
                   <th>{convertToIST(item.date).time}</th>
-                  <th>{item._id}</th>
+                  <th>{item._id.slice(-5)}</th>
+                  {console.log("String " , item.ticketCount)}
                 </tr>
               ))}
             </tbody>
