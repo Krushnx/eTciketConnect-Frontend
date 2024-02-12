@@ -92,18 +92,19 @@ function Bookings() {
     const day = inpdate.getDate();
     const month = inpdate.getMonth() + 1; 
     const year = inpdate.getFullYear();
+    const formattedDay = (day < 10) ? `0${day}` : `${day}`;
 
-    let formattedDate = (month < 10) ? `${day}/0${month}/${year}` : `${day}/${month}/${year}`;
 
+    let formattedDate = (month < 10) ? `${formattedDay}/0${month}/${year}` : `${formattedDay}/${month}/${year}`;
     
     
-
-    // const formattedDate = `${day}/${month}/${year}`;
+    console.log(convertToIST(ticket[i].date).date);
+    // console.log("------------------");
+    // console.log("I ==",i,  " \nInp1" , convertToIST(ticket[i].date).date , "\nformateddate == > " , formattedDate);
+    // console.log("------------------");
+    // // const formattedDate = `${day}/${month}/${year}`;
     
     
-    console.log("------------------");
-    console.log("I ==",i,  " \nInp1" , convertToIST(ticket[i].date).date , "\nformateddate == > " , formattedDate);
-    console.log("------------------");
     if (ticket[i].createdBy !== user._id || convertToIST(ticket[i].date).date !== formattedDate) {
       // Remove items that do not match the criteria
       // console.log("formated date ----> ",formattedDate , "   & --> ", convertToIST(ticket[i].date).date);

@@ -41,7 +41,6 @@ function AuthContextProvider(props)
             setIsConductor(dataofconductor.isConductor);
 
 
-            // const userDataRes = await axios.get('http://localhost:8000/auth/userdata');
             // setUser(userDataRes.data);
     
             // console.log("====->",dataofuser);

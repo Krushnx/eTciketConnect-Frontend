@@ -38,7 +38,7 @@ function Conductor() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/bus/${ticketBusRoute}`);
+        const response = await fetch(`${link}/bus/${ticketBusRoute}`);
         const data = await response.json();
         setBusData(data);
         setsrcarray(data.stops);
@@ -51,6 +51,18 @@ function Conductor() {
     fetchData();
   }, []); // Empty dependency array to ensure the effect runs only once
 
+  function generateRandomString(length) {
+    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+const verifyID = generateRandomString(8);
+console.log("Random --> " , verifyID);
 
   function incCount()
   {
@@ -122,7 +134,8 @@ changecnf('hide')
       createdBy,
       ticketBusNumber,
       ticketBusRoute,
-      ticketCount
+      ticketCount,
+      verifyID
     };
     setPrice("");
     let timerInterval;
@@ -130,7 +143,7 @@ changecnf('hide')
     Swal.fire({
       title: `Scan The QR`,
       html: `Ticket will genrated from ${source} to ${destination}  Price ${price} = (${price/ticketCount} * ${ticketCount}) <br />This Window Will close in <b></b>`,
-      imageUrl: `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3D9322681386%40ybl%26am%3D${price}%26tn%3DTicket%26cu%3DINR`,
+      imageUrl: `https://api.qrserver.com/v1/create-qr-code/?size=225x225&data=upi%3A%2F%2Fpay%3Fpa%3D9322681386%40ybl%26am%3D${price}%26tn%3Dhttps%3A%2F%2Feticket-connect.web.app%2Fticket%2F${verifyID}%26cu%3DINR`,
       imageHeight: 300,
       imageAlt: "A tall image",
       showCancelButton: true,
