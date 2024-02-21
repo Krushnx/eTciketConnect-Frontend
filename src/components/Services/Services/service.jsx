@@ -2,13 +2,9 @@ import React from 'react';
 import './service.css';
 import { FiCircle, FiCheckSquare, FiHeart, FiAward, FiCode } from 'react-icons/fi'; // Import icons from react-icons
 import serviceimg from "./serviceimg/serviceimg.jpg";
-import Navbar from '../Home/Navbar/Navbar';
 
-const Services = () => {
+const ServiceSection = () => {
   return (
-    <div>
-      <Navbar />
-
     <div className='servicesectionmain'>
     <div className='servicesection'>
       <h1>Our Services</h1>
@@ -100,8 +96,7 @@ const Services = () => {
       </div>
     </div>
     </div>
-    </div>
   );
 };
 
-export default Services;
+export default ServiceSection;

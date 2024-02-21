@@ -1,0 +1,30 @@
+.ScanMe{
+    padding: 15px;
+    /* height: 90px; */
+    width: 190px;
+    background-color: #007bee;
+    border: none;
+    flex-direction: column;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    background-color: #3EB2FD;
+    background-image: linear-gradient(1deg, #da4ffd, #149BF3 99%);
+    background-size: calc(100% + 20px) calc(100% + 20px);
+  transition: background-color .2s,background-position .2s;
+}
+
+.ScanMe:hover
+{
+    background-position: -20px -20px;
+
+}
+
+.ScanMe img
+{
+    height: 50px;
+}

@@ -10,6 +10,7 @@ import TicketCNF from './components/Routes/Conductor/TicketCNF';
 import Service from './components/Services/service';
 import About from './components/AboutUs/about'
 import VerifyTicket from './components/Routes/User/VerifyTicket';
+import User from './components/Routes/User/User';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -41,6 +42,7 @@ function MyRouter() {
             </>}
             
             <Route path="/services" element={<Service />} />
+            <Route path="/test" element={<User />} />
             <Route path="/about" element={<About />} />
             <Route path="/ticket/:ticketId" element={<VerifyTicket />} />
            
