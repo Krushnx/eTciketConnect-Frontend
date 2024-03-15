@@ -230,3 +230,59 @@
 {
     display: none;
 }
+
+
+/* Profie */
+
+
+.CProfile
+{
+    display: flex;
+}
+
+.c-buttons
+{
+    display: flex;
+}
+
+.c-photo
+{
+    margin: 
+    40px;
+}
+.c-photo img
+{
+    height: 230px;
+    border-radius: 30px;
+    box-shadow: rgba(88, 0, 252, 0.849) 0px 5px 15px;
+}
+
+@media only screen and (max-width: 600px) {
+
+ 
+
+    .CNDT-content
+    {
+        margin-left: 0;
+        zoom:0.8;
+        flex-direction: column;
+    }
+
+    .CNDT-left
+    {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .booking-content
+    {
+        margin-top: 40px;
+        zoom: 0.85;
+        margin-left: 5%;
+    }
+    .CProfile,.c-buttons
+{
+flex-direction: column;
+justify-content: center;
+align-items: center;}
+
+}

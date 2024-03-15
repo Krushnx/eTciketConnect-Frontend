@@ -12,7 +12,7 @@ function Navbar(props) {
 
   const [username , setusernmae] = useState("");
 
-  const { loggedIn, user } = useContext(AuthContext);
+  const { loggedIn, user , isConductor} = useContext(AuthContext);
 
     useEffect(() => {
         if (loggedIn) {
@@ -59,7 +59,7 @@ function Navbar(props) {
       <ul className={`nav-items ${isOpen ? 'open' : ''}`}>
         <li><a style={changeStyle} href="/">Home</a></li>
         <li><a style={changeStyle} href="/timttable">Timetable</a></li>
-        <li><a style={changeStyle} href="/Reservations">Reserve</a></li>
+        {isConductor &&  <li><a style={changeStyle} href="/verify">Verify</a></li>}
         <li><a style={changeStyle} href="/services">Services</a></li>
         <li><a style={changeStyle} href="/about">About Us</a></li>
         

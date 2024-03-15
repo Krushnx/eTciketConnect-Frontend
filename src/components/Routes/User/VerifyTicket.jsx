@@ -69,7 +69,7 @@ const VerifyTicket = () => {
               </div>
               <div className="top--side">
 
-                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=225x225&data=${ticket._id}`} alt="" />
+                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=225x225&data=${ticket.verifyID}`} alt="" />
               </div>
             </div>
             <div className="c1"></div>

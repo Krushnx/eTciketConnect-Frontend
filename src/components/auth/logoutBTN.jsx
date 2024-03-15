@@ -17,6 +17,7 @@ const navigate = useNavigate();
     }
     return(
         <div className='get-started' style={{marginRight:"0"}}>
+            
             <button onClick={logout}>Logout</button>
         </div>
     );

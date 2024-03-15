@@ -11,13 +11,17 @@ import Service from './components/Services/service';
 import About from './components/AboutUs/about'
 import VerifyTicket from './components/Routes/User/VerifyTicket';
 import User from './components/Routes/User/User';
+import CProfile from './components/Routes/Conductor/Profile';
+import Admin from './components/Admin/Admin';
+import Example from './components/Check/Check';
+import Check from './components/Check/Check';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 
 
 function MyRouter() {
 
-  const {loggedIn} = useContext(AuthContext);
+  const {isConductor,loggedIn} = useContext(AuthContext);
   
     return (
 
@@ -36,15 +40,21 @@ function MyRouter() {
           { loggedIn === true && <>
 
             <Route path="/main" element={<Main />} />
-            <Route path="/conductor/bookings" element={<Bookings />} />
             <Route path="/test" element={<TicketCNF />} />
+            <Route path="/profile" element={<CProfile />} />
+            
+            </>}
 
+            {isConductor && <>
+            <Route path="/conductor/bookings" element={<Bookings />} />
+            <Route path="/verify" element={<Check />} />
+            
             </>}
             
             <Route path="/services" element={<Service />} />
-            <Route path="/test" element={<User />} />
             <Route path="/about" element={<About />} />
             <Route path="/ticket/:ticketId" element={<VerifyTicket />} />
+            <Route path="/admin" element={<Admin />} />
            
 
             

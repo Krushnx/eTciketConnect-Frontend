@@ -58,3 +58,14 @@ background-blend-mode: darken;
     line-height: 25px;
     margin-bottom: 30px;
 }
+
+@media only screen and (max-width: 600px) {
+
+    .home-title
+    {
+        margin: 0px;
+        margin-top: 150px;
+    }
+
+   
+}

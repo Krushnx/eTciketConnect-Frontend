@@ -8,9 +8,7 @@ function Home()
     const {loggedIn} = useContext(AuthContext);
 
     const gotolink = loggedIn ? 'main': 'login';
-    // console.log(loggedIn);
-    // console.log(user.isConductor);
-
+   
     return(
         <div className='home'>
              <Navbar flag={false}/>
