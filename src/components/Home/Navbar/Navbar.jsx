@@ -58,7 +58,7 @@ function Navbar(props) {
       </div>
       <ul className={`nav-items ${isOpen ? 'open' : ''}`}>
         <li><a style={changeStyle} href="/">Home</a></li>
-        <li><a style={changeStyle} href="/timttable">Timetable</a></li>
+        <li><a style={changeStyle} href="/timetable">Timetable</a></li>
         {isConductor &&  <li><a style={changeStyle} href="/verify">Verify</a></li>}
         <li><a style={changeStyle} href="/services">Services</a></li>
         <li><a style={changeStyle} href="/about">About Us</a></li>
