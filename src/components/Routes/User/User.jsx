@@ -83,7 +83,6 @@ function User() {
         <div className='CNDT'>
              <Navbar flag={false} />
              <div className="user-content tpad30">
-            <QRScanner />
 
         </div>
         </div>
