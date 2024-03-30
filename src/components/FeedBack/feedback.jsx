@@ -3,6 +3,9 @@ import axios from 'axios';
 import { FaStar } from 'react-icons/fa';
 import "./feedback.css";
 import Navbar from '../Home/Navbar/Navbar';
+import link from '../../backendlink';
+import Swal from 'sweetalert2';
+
 
 const FeedbackForm = () => {
   const [feedback, setFeedback] = useState('');
@@ -11,13 +14,27 @@ const FeedbackForm = () => {
   const [hover, setHover] = useState(0);
 
   const submitFeedback = async () => {
+    if (feedback === '' || rating ===0 || suggestion ==='') {
+      Swal.fire({
+        title: "Error",
+        text: "Please Fill All Values !",
+        icon: "error"
+      });
+      
+    }
     try {
-      const response = await axios.post("http://localhost:8000/api/feedback/submit", { feedback, suggestion, rating });
+      const response = await axios.post(`${link}/feedback/submit` , { feedback, suggestion, rating });
       console.log(response.data); // Handle success
+      Swal.fire({
+        title: "Done !",
+        text: "Your feedback recorded successfully !",
+        icon: "success"
+      })
       setFeedback('');
       setSuggestion('');
       setRating();
     } catch (error) {
+      
       console.error(error); // Handle error
     }
   };
@@ -28,15 +45,16 @@ const FeedbackForm = () => {
         <div className="feedback-form">
       <h2>Feedback Form</h2>
       <div className="textarea-container">
-      <textarea
-        placeholder="Enter your feedback..."
+      <input
+        className='input-feedback'
+        placeholder="Title"
         value={feedback}
         onChange={(e) => setFeedback(e.target.value)}
       />
     </div>
     <div className="textarea-container">
       <textarea
-        placeholder="Enter your suggestion..."
+        placeholder="Enter your Feedback..."
         value={suggestion}
         onChange={(e) => setSuggestion(e.target.value)}
       />
