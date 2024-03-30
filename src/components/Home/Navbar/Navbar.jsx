@@ -62,7 +62,7 @@ function Navbar(props) {
         {isConductor &&  <li><a style={changeStyle} href="/verify">Verify</a></li>}
         <li><a style={changeStyle} href="/services">Services</a></li>
         <li><a style={changeStyle} href="/about">About Us</a></li>
-        
+        <li><a style={changeStyle} href="/feedback">FeedBack</a></li>
         {loggedIn===false &&<li><Button1 name="Login" link="/login"/></li>}
         {loggedIn===true &&<li><Button1 name={nameuser.split(" ")[0]} link="/profile"/></li>}
         {loggedIn===undefined && <li><Button1 name = "Loading..."/></li>}

@@ -16,6 +16,8 @@ import Admin from './components/Admin/Admin';
 import Example from './components/Check/Check';
 import Check from './components/Check/Check';
 import Timetable from './components/TimeTable/Timetable';
+import Feedback from './components/FeedBack/feedback';
+
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -57,7 +59,8 @@ function MyRouter() {
             <Route path="/ticket/:ticketId" element={<VerifyTicket />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/timetable" element={<Timetable />} />
-           
+            <Route path="/feedback" element={<Feedback/>} />
+
 
             
         </Routes></Router>
