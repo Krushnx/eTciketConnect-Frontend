@@ -21,10 +21,14 @@ function Register()
         e.preventDefault();
 
         try {
+
+          const userID = Math.floor(Math.random() * 9000) + 1000;
+
+          
             
             const registerData = 
             {
-               name,  mobile,email , password , passwordVerify
+               name,  mobile,email , password , passwordVerify,userID
             };
 
             await axios.post(`${link}/auth` , registerData);

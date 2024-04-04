@@ -48,6 +48,21 @@
     color: #bb0052;
 }
 
+.input-code:focus
+{
+    outline: none;
+}
+.input-code
+{
+    margin-top: 20px;
+    height: 30px;
+    padding: 3px;
+    font-size: 16px;
+    width: 120px;
+    font-weight: bolder;
+    letter-spacing: 18px;
+}
+
 
 .CNDT-create-ticket
 {

@@ -11,7 +11,6 @@ const VerifyTicket = () => {
   const { ticketId } = useParams();
 
 
-
   function formatDate(dateString) {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, '0');
@@ -31,6 +30,7 @@ const VerifyTicket = () => {
 
 
   const [ticket, setTicket] = useState(null);
+  const [username, setUsername] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,12 +38,16 @@ const VerifyTicket = () => {
         const response = await fetch(`${link}/ticket/${ticketId}`);
         const data = await response.json();
         setTicket(data);
-
-        console.log("111 -- > ", data);
+        const nameofuser = await fetch(`${link}/auth/getusercode/${data.userID}`);
+        const namedata=await nameofuser.json();
+        setUsername(namedata);
+        console.log("111 -- > ", namedata);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
+
+    
 
     fetchData();
   }, []); // Empty dependency array to ensure the effect runs only once
@@ -76,19 +80,30 @@ const VerifyTicket = () => {
             <div className="c2"></div>
             <div className="bottom">
               <div className="column">
+              <p className="row--center"><span>Ticket Id</span>{ticket._id}</p>
+              <div className="line"></div>
+
                 <div className="row row-1">
                   <p><span>Source</span>{ticket.source}</p>
                   <p className="row--center"><span>Destination</span>{ticket.destination}</p>
                   <p className="row--right"><span>Ticket Count</span>{ticket.ticketCount.$numberDecimal }</p>
                 </div>
+                
+                {ticket.userID != '----' &&   <div className="row row-2">
+                  <p><span>Name</span>{username.name}</p>
+                  <p className="row--right"><span>User ID</span>{ticket.userID}</p>
+                </div>}
+
+               
                 <div className="row row-2">
                   <p><span>Date</span>{formatDate(ticket.date)}</p>
                   <p className="row--center"><span>Price</span> ₹ {ticket.price}</p>
                   <p className="row--right"><span>Time</span>{formatTime(ticket.date)}</p>
                 </div>
+                <div className="line"></div>
                 <div className="row row-3">
                   <p><span>Bus Number</span>{ticket.ticketBusNumber}</p>
-                  <p className="row--center"><span>Ticket Id</span>{ticket.verifyID}</p>
+                  {/* <p className="row--center"><span>Ticket Id</span>{ticket.verifyID}</p> */}
                   <p className="row--right"><span>Bus Route</span>{ticket.ticketBusRoute}</p>
                 </div>
               </div>

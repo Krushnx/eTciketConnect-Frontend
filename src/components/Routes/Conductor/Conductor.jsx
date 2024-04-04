@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 import 'reactjs-popup/dist/index.css';
 import TicketCNF from "./TicketCNF";
+import OtpInput from 'react-otp-input';
 
 function Conductor() {
   const user = useContext(AuthContext);
@@ -29,7 +30,10 @@ function Conductor() {
   const [ticketCount , setTCount]= useState(1);
   const [btnclass , changeclass] = useState("hide");
   const [cnfclass , changecnf] = useState("show cnfmtct");
+  const [userID, setUserID] = useState('----');
+
   // fetching bus data
+
 
   // const fetchroute = ticketBusRoute
 
@@ -126,7 +130,6 @@ changecnf('hide')
   }
   async function createTicket(e) {
     e.preventDefault();
-
     const newEntry = {
       source,
       destination,
@@ -135,7 +138,8 @@ changecnf('hide')
       ticketBusNumber,
       ticketBusRoute,
       ticketCount,
-      verifyID
+      verifyID,
+      userID
     };
     setPrice("");
     let timerInterval;
@@ -180,13 +184,14 @@ changecnf('hide')
           showCancelButton: false,
           allowEscapeKey: false,
           allowOutsideClick: false
-        });
+        })
       }
     });
 
 
     try {
       await axios.post(`${link}/ticket`, newEntry);
+     
     } catch (error) {
       console.log(error);
     }
@@ -274,6 +279,15 @@ changecnf('hide')
                     <h1>{ticketCount}</h1>
                     <h2 onClick={incCount}>+</h2>
                   </div>
+                  {/* <input type="text" className="input-code" placeholder="User ID"/> */}
+                  <OtpInput
+      value={userID}
+      inputStyle={{ fontSize: '20px' , padding:'6px'  , margin:'20px 5px' }}
+      onChange={setUserID}
+      numInputs={4}
+      renderSeparator={<span>-</span>}
+      renderInput={(props) => <input {...props} />}
+    />
                 </div>
                 <h4 className={cnfclass} onClick={cnfmtct}>Done</h4>
                 <div className={btnclass}>
@@ -282,7 +296,7 @@ changecnf('hide')
               </div>
             </form>
           </div>
-          <h2>
+          <h2 style={{marginTop:'-10px'}}>
             View my entries &nbsp;&nbsp;&nbsp; <Button2 name="VIEW" bgcolor="#e3e600" color="black" link="conductor/bookings" />{" "}
           </h2>
         </div>

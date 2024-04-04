@@ -35,7 +35,7 @@ const Timetable = () => {
     <div className="timetable-fullbox">
       <Navbar />
       <div className="timetable-container">
-        <h1>City Timetable</h1>
+        <h1 style={{color:'white'}}>City Timetable</h1>
         <div className="timetable">
           {loading ? (
             <p>Loading...</p>

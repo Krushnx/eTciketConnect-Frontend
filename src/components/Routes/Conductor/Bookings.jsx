@@ -131,7 +131,7 @@ function Bookings() {
       <Navbar />
 
       <div className="CNDT-content tpad30">
-        <div className="CNDT-left">
+        <div className="CNDT-left" style={{marginRight:'15px'}}>
           <div className="CNDT-Message">
             <h2>Welcome on Board </h2>
             <h2>{user.name}</h2>
@@ -172,6 +172,7 @@ function Bookings() {
                 <th>Date</th>
                 <th>Time</th>
                 <th>Ticket ID</th>
+                <th>User ID</th>
               </tr>
             </thead>
             <tbody>
@@ -183,7 +184,9 @@ function Bookings() {
                   <th>{item.ticketCount ? item.ticketCount.$numberDecimal : 1}</th>
                   <th>{convertToIST(item.date).date}</th>
                   <th>{convertToIST(item.date).time}</th>
-                  <th>{item._id.slice(-5)}</th>
+                  {/* <th>{item._id.slice(-5)}</th> */}
+                  <th>{item.verifyID}</th>
+                  <th>{item.userID}</th>
                   {console.log("String " , item.ticketCount)}
                 </tr>
               ))}

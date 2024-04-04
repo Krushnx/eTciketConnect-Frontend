@@ -20,11 +20,12 @@
 
 .airline {
     display: block;
-    /* height: 575px; */
+    height: 630px;
     width: 400px;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
     /* border-radius: 25px; */
     z-index: 3;
+    background-color: white;
 }
 
 .airline .top {
@@ -127,13 +128,14 @@
 .airline .bottom .column {
     margin: 0 auto;
     width: 80%;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 .airline .bottom .row {
     display: flex;
     justify-content: space-between;
 }
+
 
 .airline .bottom .row--right {
     text-align: right;
@@ -144,19 +146,11 @@
 }
 
 .airline .bottom .row-2 {
-    margin: 30px 0 60px 0;
+    margin: 25px 0 20px 0;
     position: relative;
 }
 
-.airline .bottom .row-2::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    bottom: -30px;
-    left: 0;
-    background: #000;
-    height: 1px;
-}
+
 
 .airline .bottom .bar--code {
     height: 50px;
@@ -165,27 +159,9 @@
     position: relative;
 }
 
-.airline .bottom .bar--code::after {
-    content: "";
-    position: absolute;
-    width: 6px;
-    height: 100%;
-    background: #000;
-    top: 0;
-    left: 0;
-    box-shadow: 10px 0 #000, 30px 0 #000, 40px 0 #000, 67px 0 #000, 90px 0 #000, 100px 0 #000, 180px 0 #000, 165px 0 #000, 200px 0 #000, 210px 0 #000, 135px 0 #000, 120px 0 #000;
-}
 
-.airline .bottom .bar--code::before {
-    content: "";
-    position: absolute;
-    width: 3px;
-    height: 100%;
-    background: #000;
-    top: 0;
-    left: 11px;
-    box-shadow: 12px 0 #000, -4px 0 #000, 45px 0 #000, 65px 0 #000, 72px 0 #000, 78px 0 #000, 97px 0 #000, 150px 0 #000, 165px 0 #000, 180px 0 #000, 135px 0 #000, 120px 0 #000;
-}
+
+
 
 .info {
     position: absolute;
