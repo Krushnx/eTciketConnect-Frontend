@@ -17,6 +17,7 @@ import Example from './components/Check/Check';
 import Check from './components/Check/Check';
 import Timetable from './components/TimeTable/Timetable';
 import Feedback from './components/FeedBack/feedback';
+import Dashboard from './components/Routes/User/Dashboard/Dashboard';
 
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
@@ -43,7 +44,7 @@ function MyRouter() {
           { loggedIn === true && <>
 
             <Route path="/main" element={<Main />} />
-            <Route path="/test" element={<TicketCNF />} />
+            <Route path="/test" element={<Dashboard />} />
             <Route path="/profile" element={<CProfile />} />
             
             </>}
@@ -60,6 +61,7 @@ function MyRouter() {
             <Route path="/admin" element={<Admin />} />
             <Route path="/timetable" element={<Timetable />} />
             <Route path="/feedback" element={<Feedback/>} />
+            <Route path="/hii" element={<Dashboard />} />
 
 
             

@@ -4,15 +4,16 @@ import './Conductor.css'
 import Button2 from '../../Genral/Button2';
 import LogoutBTN from '../../auth/logoutBTN';
 import AuthContext from '../../../context/authcontext';
+import CNDTDASH from './CNDTDASH';
 
 function CProfile() {
     const user = useContext(AuthContext);
     // const user = { "name": " Krushna Nagare" , "busNumber" : "MH 12 BP 6614" , "busRoute" :"Pune - Surat" }
     return (
-        <div className="CNDT">
+        <div >
             <Navbar />
 
-            <div className="CProfile tpad30">
+            {/* <div className="CProfile tpad30">
                 <div className="c-photo">
                     <img src="https://cdn-icons-png.flaticon.com/512/560/560199.png" alt="" />
 
@@ -51,8 +52,8 @@ function CProfile() {
                 </div>
                 </div>
                 </div>
-            </div>
-
+            </div> */}
+    <CNDTDASH  />
         </div>
     );
 }

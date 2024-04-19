@@ -41,8 +41,7 @@ const VerifyTicket = () => {
         const nameofuser = await fetch(`${link}/auth/getusercode/${data.userID}`);
         const namedata=await nameofuser.json();
         setUsername(namedata);
-        console.log("111 -- > ", namedata);
-      } catch (error) {
+        } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
@@ -90,7 +89,8 @@ const VerifyTicket = () => {
                 </div>
                 
                 {ticket.userID != '----' &&   <div className="row row-2">
-                  <p><span>Name</span>{username.name}</p>
+                  {username && <p><span>Name</span>{username.name}</p>}
+                  
                   <p className="row--right"><span>User ID</span>{ticket.userID}</p>
                 </div>}
 
